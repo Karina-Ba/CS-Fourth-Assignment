@@ -36,11 +36,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ActionMenuItem.cs" />
+    <Compile Include="IActionable.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="OptionsMenuItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
