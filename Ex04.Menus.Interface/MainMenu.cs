@@ -3,32 +3,15 @@ using System.Collections.Generic;
 
 namespace Ex04.Menus.Interface
 {
-    public class MainMenu
+    public class MainMenu : OptionsMenuItem
     {
-        List<MenuItem> m_MenuItems; 
-
-        public MainMenu(Dictionary<string, List<string>> i_DictionaryMenuItems)
+        public MainMenu(List<MenuItem> i_MenuOptions) : base(i_MenuOptions, "Main menu")
         {
-            this.m_MenuItems = new List<MenuItem>();
-            List<string> mainMenuItems;
-            bool foundItems = i_DictionaryMenuItems.TryGetValue("Main menu", out mainMenuItems);
-
-            this.m_MenuItems.Add(new MenuItem("Exit", ));
-            if (foundItems)
-            {
-                foreach (string currentString in mainMenuItems)
-                {
-                    MenuItem menuItem = new MenuItem(currentString,listofactions, );
-                }
-            }
         }
 
-        public void Show()
+        public override MenuItem BackOption()
         {
-            //looop
-            //
+            return new ActionMenuItem(null, "Exit");
         }
-
-        //Ctor <- Dictionary
     }
 }

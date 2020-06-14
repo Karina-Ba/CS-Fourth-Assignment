@@ -36,11 +36,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyActionables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TestMenu.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\B20 Ex04 Karina 321800898 Matan 313300717\Ex04.Menus.Interfaces.csproj">
+    <ProjectReference Include="..\Ex04.Menus.Interface\Ex04.Menus.Interfaces.csproj">
       <Project>{15ed9ab3-4c06-4343-971a-e7db0f64c7de}</Project>
       <Name>Ex04.Menus.Interfaces</Name>
     </ProjectReference>

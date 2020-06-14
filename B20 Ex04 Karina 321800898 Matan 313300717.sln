@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Interfaces", "B20 Ex04 Karina 321800898 Matan 313300717\Ex04.Menus.Interfaces.csproj", "{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Delegate", "Ex04.Menus.Delegate\Ex04.Menus.Delegate.csproj", "{21E38130-392B-42F5-AFBB-F6F52408512B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Test", "Ex.Menus.Test\Ex04.Menus.Test.csproj", "{0A98FE08-FE8D-4C4A-9DD7-D0F3E946E8B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Interfaces", "Ex04.Menus.Interface\Ex04.Menus.Interfaces.csproj", "{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Test", "Ex04.Menus.Test\Ex04.Menus.Test.csproj", "{0A98FE08-FE8D-4C4A-9DD7-D0F3E946E8B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{21E38130-392B-42F5-AFBB-F6F52408512B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21E38130-392B-42F5-AFBB-F6F52408512B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21E38130-392B-42F5-AFBB-F6F52408512B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21E38130-392B-42F5-AFBB-F6F52408512B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15ED9AB3-4C06-4343-971A-E7DB0F64C7DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A98FE08-FE8D-4C4A-9DD7-D0F3E946E8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A98FE08-FE8D-4C4A-9DD7-D0F3E946E8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A98FE08-FE8D-4C4A-9DD7-D0F3E946E8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU

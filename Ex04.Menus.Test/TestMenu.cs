@@ -7,35 +7,33 @@ namespace Ex04.Menus.Test
     {
         public void InitTestMenu()
         {
+            
             this.setMenus();
             
         }
 
         private void setMenus()
         {
-            Dictionary<string, List<string>> menuStrings;
-
-            createStringsForMenus(out menuStrings);
-            Interface.MainMenu intefaceMenu = new Interface.MainMenu(menuStrings);//??
-            Delegate.MainMenu delegateMenu = new Delegate.MainMenu(menuStrings);//??
+            List<Interface.MenuItem> newMenuFromUser = createInterfaceMenu();
+            Interface.MainMenu interfaceMenu = new Interface.MainMenu(newMenuFromUser);
+            interfaceMenu.Show();
+            //Delegate.MainMenu delegateMenu = new Delegate.MainMenu(menuStrings);//??
         }
 
-        private void createStringsForMenus(out Dictionary<string, List<string>> o_MenuStringsDictionary)
+        private List<Interface.MenuItem> createInterfaceMenu()
         {
-            List<string> mainMenuItems = new List<string>();
-            List<string> versionAndDigitsMenuItems = new List<string>();
-            List<string> showDateOrTimeMenuItems = new List<string>();
-            o_MenuStringsDictionary = new Dictionary<string, List<string>>();
+            List<Interface.MenuItem> newInterfaceMenu = new List<Interface.MenuItem>();
+            List<Interface.MenuItem> versionAndDigitsMenu = new List<Interface.MenuItem>();
+            List<Interface.MenuItem> showDateAndTime = new List<Interface.MenuItem>();
 
-            mainMenuItems.Add("Version and Digits");
-            mainMenuItems.Add("Show Date/Time");
-            o_MenuStringsDictionary.Add("Main menu", mainMenuItems);
-            versionAndDigitsMenuItems.Add("Count Capitals");
-            versionAndDigitsMenuItems.Add("Show Version");
-            o_MenuStringsDictionary.Add("Version and Digits", versionAndDigitsMenuItems);
-            showDateOrTimeMenuItems.Add("Show Time");
-            showDateOrTimeMenuItems.Add("Show Date");
-            o_MenuStringsDictionary.Add("Show Date/Time", showDateOrTimeMenuItems);
+            versionAndDigitsMenu.Add(new Interface.ActionMenuItem(new MyActionables(1), "Count Capitals"));
+            versionAndDigitsMenu.Add(new Interface.ActionMenuItem(new MyActionables(2), "Show Version"));
+            showDateAndTime.Add(new Interface.ActionMenuItem(new MyActionables(3), "Show Time"));
+            showDateAndTime.Add(new Interface.ActionMenuItem(new MyActionables(3), "Show Date"));
+            newInterfaceMenu.Add(new Interface.OptionsMenuItem(versionAndDigitsMenu, "Version and Digits"));
+            newInterfaceMenu.Add(new Interface.OptionsMenuItem(showDateAndTime, "Show Date/Time"));
+
+            return newInterfaceMenu;
         }
     }
 }
