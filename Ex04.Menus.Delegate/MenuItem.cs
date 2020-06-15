@@ -6,7 +6,7 @@ namespace Ex04.Menus.Delegate
     {
         private string m_Title;
         ///----------------------------------------------------------------///
-        public MenuItem(string i_Title)
+        protected MenuItem(string i_Title)
         {
             this.m_Title = i_Title;
         }
@@ -41,11 +41,11 @@ namespace Ex04.Menus.Delegate
             if (i_UserChoiceMenu is OptionsMenuItem)
             {
                 (i_UserChoiceMenu as OptionsMenuItem).Show();
-    }
+            }
             else
             {
                 (i_UserChoiceMenu as ActionMenuItem).DoAction();
-}
+            }
         }
         ///----------------------------------------------------------------///
     }

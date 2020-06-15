@@ -6,8 +6,7 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
-            TestMenu testMenu = new TestMenu();
-            testMenu.InitTestMenu();
+            TestMenu.InitTestMenu();
         }
     }
 }

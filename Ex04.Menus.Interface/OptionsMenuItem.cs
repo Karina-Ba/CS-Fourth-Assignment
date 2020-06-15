@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interface
 {
@@ -42,9 +39,9 @@ namespace Ex04.Menus.Interface
             }
         }
         ///----------------------------------------------------------------///
-        private void printMenuOptions(int i_ListLenght)
+        private void printMenuOptions(int i_ListLength)
         {
-            for (int i = 0; i < i_ListLenght; ++i)
+            for (int i = 0; i < i_ListLength; ++i)
             {
                 Console.WriteLine(@"|| {0}. {1}", i, this.m_MenuOptions[i].Title);
             }
@@ -64,7 +61,7 @@ namespace Ex04.Menus.Interface
 
                 if (isValidInput && (userChoiceNum < i_MinValue || userChoiceNum > i_MaxValue))
                 {
-                    Console.Write("Your choice is out of boundarie which are between {0} to {1}, please try again: ",
+                    Console.Write("Your choice is out of boundaries which are between {0} to {1}, please try again: ",
                         i_MinValue,
                         i_MaxValue);
                     isValidInput = false;

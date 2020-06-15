@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex04.Menus.Delegate
 {
@@ -64,7 +61,7 @@ namespace Ex04.Menus.Delegate
 
                 if (isValidInput && (userChoiceNum < i_MinValue || userChoiceNum > i_MaxValue))
                 {
-                    Console.Write("Your choice is out of boundarie which are between {0} to {1}, please try again: ", i_MinValue, i_MaxValue);
+                    Console.Write("Your choice is out of boundaries which are between {0} to {1}, please try again: ", i_MinValue, i_MaxValue);
                     isValidInput = false;
                 }
                 else if (!isValidInput)

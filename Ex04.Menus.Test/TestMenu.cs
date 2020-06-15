@@ -3,28 +3,26 @@ using System.Collections.Generic;
 
 namespace Ex04.Menus.Test
 {
-    public class TestMenu
+    public static class TestMenu
     {
-        private Interface.MainMenu m_InterfaceMenu;
-        private Delegate.MainMenu m_DelegateMenu;
+
         ///----------------------------------------------------------------///
-        public void InitTestMenu()
+        public static void InitTestMenu()
         {
-            this.setMenus();   
+            setMenus();   
         }
         ///----------------------------------------------------------------///
-        private void setMenus()
+        private static void setMenus()
         {
             List<Interface.MenuItem> newInterfaceMenu = createInterfaceMenu();
             List<Delegate.MenuItem> newDelegateMenu = createDelegateMenu();
-
-            this.m_InterfaceMenu = new Interface.MainMenu(newInterfaceMenu);
-            this.m_DelegateMenu = new Delegate.MainMenu(newDelegateMenu);
-            this.m_InterfaceMenu.Show();
-            this.m_DelegateMenu.Show();
+            Interface.MainMenu interfaceMenu = new Interface.MainMenu(newInterfaceMenu);
+            Delegate.MainMenu delegateMenu = new Delegate.MainMenu(newDelegateMenu);
+            interfaceMenu.Show();
+            delegateMenu.Show();
         }
         ///----------------------------------------------------------------///
-        private List<Interface.MenuItem> createInterfaceMenu()
+        private static List<Interface.MenuItem> createInterfaceMenu()
         {
             List<Interface.MenuItem> newInterfaceMenu = new List<Interface.MenuItem>();
             List<Interface.MenuItem> versionAndDigitsMenu = new List<Interface.MenuItem>();
@@ -40,7 +38,7 @@ namespace Ex04.Menus.Test
             return newInterfaceMenu;
         }
         ///----------------------------------------------------------------///
-        private List<Delegate.MenuItem> createDelegateMenu()
+        private static List<Delegate.MenuItem> createDelegateMenu()
         {
             List<Delegate.MenuItem> newDelegateMenu = new List<Delegate.MenuItem>();
             List<Delegate.MenuItem> versionAndDigitsMenu = new List<Delegate.MenuItem>();
