@@ -22,21 +22,21 @@ namespace Ex04.Menus.Test
             switch (this.m_ActionNumber)
             {
                 case 1:
-                    this.countCapitals();
+                    CountCapitals();
                     break;
                 case 2:
-                    this.showVersion();
+                    ShowVersion();
                     break;
                 case 3:
-                    this.showTime();
+                    ShowTime();
                     break;
                 case 4:
-                    this.showDate();
+                    ShowDate();
                     break;
             }
         }
         ///----------------------------------------------------------------///
-        private void countCapitals()
+        public static void CountCapitals()
         {
             int numOfUpper = 0;
             Console.WriteLine("Please enter a string:");
@@ -54,19 +54,19 @@ namespace Ex04.Menus.Test
             System.Threading.Thread.Sleep(2000);
         }
         ///----------------------------------------------------------------///
-        private void showVersion()
+        public static void ShowVersion()
         {
             Console.WriteLine("Version: 20.2.4.30620");
             System.Threading.Thread.Sleep(2000);
         }
         ///----------------------------------------------------------------///
-        private void showTime()
+        public static void ShowTime()
         {
             Console.WriteLine(DateTime.Now.ToShortTimeString());
             System.Threading.Thread.Sleep(2000);
         }
         ///----------------------------------------------------------------///
-        private void showDate()
+        public static void ShowDate()
         {
             Console.WriteLine(DateTime.Now.ToShortDateString());
             System.Threading.Thread.Sleep(2000);

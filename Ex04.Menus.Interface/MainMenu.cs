@@ -9,7 +9,7 @@ namespace Ex04.Menus.Interface
         {
         }
         ///----------------------------------------------------------------///
-        public override MenuItem BackOption()
+        protected override MenuItem BackOption()
         {
             return new ActionMenuItem("Exit");
         }

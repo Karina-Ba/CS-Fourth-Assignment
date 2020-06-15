@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex04.Menus.Interface
+namespace Ex04.Menus.Delegate
 {
     public class OptionsMenuItem : MenuItem
     {
         private List<MenuItem> m_MenuOptions;
+        public event ChosenMenuItemEvent OptionMenuItemChosen;
         ///----------------------------------------------------------------///
         public OptionsMenuItem(List<MenuItem> i_MenuOptions, string i_Title) : base(i_Title)
         {
             this.m_MenuOptions = i_MenuOptions;
             this.m_MenuOptions.Insert(0, this.BackOption());
+            this.OptionMenuItemChosen += new ChosenMenuItemEvent(printOptionsGetUserChoice);
         }
         ///----------------------------------------------------------------///
         public List<MenuItem> MenuOptions
@@ -30,16 +32,7 @@ namespace Ex04.Menus.Interface
         ///----------------------------------------------------------------///
         public override void Show()
         {
-            int lengthOfList = this.m_MenuOptions.Count;
-            int userChoiceNumber = -1;
-
-            while (userChoiceNumber != 0)
-            {
-                base.Show();
-                this.printMenuOptions(lengthOfList);
-                userChoiceNumber = this.getUserChoiceNumber(0, lengthOfList - 1);
-                base.StartChosenMenuItem(this.m_MenuOptions[userChoiceNumber]);
-            }
+            this.OptionMenuItemChosen?.Invoke();
         }
         ///----------------------------------------------------------------///
         private void printMenuOptions(int i_ListLenght)
@@ -77,5 +70,18 @@ namespace Ex04.Menus.Interface
             return userChoiceNum;
         }
         ///----------------------------------------------------------------///
+        private void printOptionsGetUserChoice()
+        {
+            int lengthOfList = this.m_MenuOptions.Count;
+            int userChoiceNumber = -1;
+
+            while (userChoiceNumber != 0)
+            {
+                base.Show();
+                this.printMenuOptions(lengthOfList);
+                userChoiceNumber = this.getUserChoiceNumber(0, lengthOfList - 1);
+                this.m_MenuOptions[userChoiceNumber].Show();
+            }
+        }
     }
 }

@@ -33,9 +33,21 @@ namespace Ex04.Menus.Interface
             Console.WriteLine(this.m_Title + " :");
         }
         ///----------------------------------------------------------------///
-        public virtual MenuItem BackOption()
+        protected virtual MenuItem BackOption()
         {
             return new ActionMenuItem("Back");
+        }
+        ///----------------------------------------------------------------///
+        protected void StartChosenMenuItem(MenuItem i_UserChoiceMenu)
+        {
+            if (i_UserChoiceMenu is OptionsMenuItem)
+            {
+                (i_UserChoiceMenu as OptionsMenuItem).Show();
+    }
+            else
+            {
+                (i_UserChoiceMenu as ActionMenuItem).DoMenuItemAction();
+}
         }
         ///----------------------------------------------------------------///
     }

@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Ex04.Menus.Delegate
 {
-    public class MainMenu
+    public class MainMenu : OptionsMenuItem
     {
-        public void Show()
+        public MainMenu(List<MenuItem> i_MenuOptions) : base(i_MenuOptions, "Main menu")
         {
-            //looop
-            //
+
         }
+        ///----------------------------------------------------------------///
+        protected override MenuItem BackOption()
+        {
+            return new ActionMenuItem("Exit");
+        }
+        ///----------------------------------------------------------------///
     }
 }
