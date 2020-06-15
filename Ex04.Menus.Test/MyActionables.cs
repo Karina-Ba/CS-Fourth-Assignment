@@ -8,32 +8,12 @@ namespace Ex04.Menus.Test
 {
     public class MyActionables : Interface.ActionMenuItem
     {
-        private int m_ActionNumber;
+        private readonly int r_ActionNumber;
         ///----------------------------------------------------------------///
-        public MyActionables(int i_ActionNumber, string i_Title) : base(i_Title)
+        public static void ShowDate()
         {
-            this.m_ActionNumber = i_ActionNumber;
-        }
-        ///----------------------------------------------------------------///
-        public override void DoMenuItemAction()
-        {
-            base.DoMenuItemAction();
-
-            switch (this.m_ActionNumber)
-            {
-                case 1:
-                    CountCapitals();
-                    break;
-                case 2:
-                    ShowVersion();
-                    break;
-                case 3:
-                    ShowTime();
-                    break;
-                case 4:
-                    ShowDate();
-                    break;
-            }
+            Console.WriteLine(DateTime.Now.ToShortDateString());
+            System.Threading.Thread.Sleep(2000);
         }
         ///----------------------------------------------------------------///
         public static void CountCapitals()
@@ -66,11 +46,30 @@ namespace Ex04.Menus.Test
             System.Threading.Thread.Sleep(2000);
         }
         ///----------------------------------------------------------------///
-        public static void ShowDate()
+        public MyActionables(int i_ActionNumber, string i_Title) : base(i_Title)
         {
-            Console.WriteLine(DateTime.Now.ToShortDateString());
-            System.Threading.Thread.Sleep(2000);
+            this.r_ActionNumber = i_ActionNumber;
+        }
+        ///----------------------------------------------------------------///
+        public override void DoMenuItemAction()
+        {
+            Show();
 
+            switch (this.r_ActionNumber)
+            {
+                case 1:
+                    CountCapitals();
+                    break;
+                case 2:
+                    ShowVersion();
+                    break;
+                case 3:
+                    ShowTime();
+                    break;
+                case 4:
+                    ShowDate();
+                    break;
+            }
         }
         ///----------------------------------------------------------------///
     }

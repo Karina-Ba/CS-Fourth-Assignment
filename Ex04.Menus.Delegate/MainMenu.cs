@@ -7,7 +7,6 @@ namespace Ex04.Menus.Delegate
     {
         public MainMenu(List<MenuItem> i_MenuOptions) : base(i_MenuOptions, "Main menu")
         {
-
         }
         ///----------------------------------------------------------------///
         protected override MenuItem BackOption()

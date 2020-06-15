@@ -2,17 +2,13 @@
 
 namespace Ex04.Menus.Delegate
 { 
-    public delegate void ChosenMenuItemEvent();
-
     public abstract class MenuItem
     {
-        public event ChosenMenuItemEvent MenuItemChosen;
         private string m_Title;
         ///----------------------------------------------------------------///
         public MenuItem(string i_Title)
         {
             this.m_Title = i_Title;
-            this.MenuItemChosen += new ChosenMenuItemEvent(clearScreenPrintTitle);
         }
         ///----------------------------------------------------------------///
         public string Title
@@ -29,7 +25,10 @@ namespace Ex04.Menus.Delegate
         ///----------------------------------------------------------------///
         public virtual void Show()
         {
-            this.MenuItemChosen?.Invoke();
+            Console.Clear();
+            Console.WriteLine(@"                {0} :
+=============================================", this.m_Title);
+            System.Threading.Thread.Sleep(100);
         }
         ///----------------------------------------------------------------///
         protected virtual MenuItem BackOption()
@@ -37,12 +36,16 @@ namespace Ex04.Menus.Delegate
             return new ActionMenuItem("Back");
         }
         ///----------------------------------------------------------------///
-        protected void clearScreenPrintTitle()
+        protected void StartChosenMenuItem(MenuItem i_UserChoiceMenu)
         {
-            Console.Clear();
-            Console.WriteLine(this.m_Title + " :");
-            System.Threading.Thread.Sleep(500);
-
+            if (i_UserChoiceMenu is OptionsMenuItem)
+            {
+                (i_UserChoiceMenu as OptionsMenuItem).Show();
+    }
+            else
+            {
+                (i_UserChoiceMenu as ActionMenuItem).DoAction();
+}
         }
         ///----------------------------------------------------------------///
     }

@@ -30,7 +30,9 @@ namespace Ex04.Menus.Interface
         public virtual void Show()
         {
             Console.Clear();
-            Console.WriteLine(this.m_Title + " :");
+            Console.WriteLine(@"                {0} :
+=============================================", this.m_Title);
+            System.Threading.Thread.Sleep(100);
         }
         ///----------------------------------------------------------------///
         protected virtual MenuItem BackOption()
@@ -43,11 +45,11 @@ namespace Ex04.Menus.Interface
             if (i_UserChoiceMenu is OptionsMenuItem)
             {
                 (i_UserChoiceMenu as OptionsMenuItem).Show();
-    }
+            }
             else
             {
                 (i_UserChoiceMenu as ActionMenuItem).DoMenuItemAction();
-}
+            }
         }
         ///----------------------------------------------------------------///
     }

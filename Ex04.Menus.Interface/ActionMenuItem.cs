@@ -15,7 +15,7 @@ namespace Ex04.Menus.Interface
         ///----------------------------------------------------------------///
         public virtual void DoMenuItemAction()
         {
-            base.Show();
+            Show();
             System.Threading.Thread.Sleep(500);
         }
         ///----------------------------------------------------------------///

@@ -9,13 +9,11 @@ namespace Ex04.Menus.Delegate
     public class OptionsMenuItem : MenuItem
     {
         private List<MenuItem> m_MenuOptions;
-        public event ChosenMenuItemEvent OptionMenuItemChosen;
         ///----------------------------------------------------------------///
         public OptionsMenuItem(List<MenuItem> i_MenuOptions, string i_Title) : base(i_Title)
         {
             this.m_MenuOptions = i_MenuOptions;
             this.m_MenuOptions.Insert(0, this.BackOption());
-            this.OptionMenuItemChosen += new ChosenMenuItemEvent(printOptionsGetUserChoice);
         }
         ///----------------------------------------------------------------///
         public List<MenuItem> MenuOptions
@@ -32,14 +30,23 @@ namespace Ex04.Menus.Delegate
         ///----------------------------------------------------------------///
         public override void Show()
         {
-            this.OptionMenuItemChosen?.Invoke();
+            int lengthOfList = this.m_MenuOptions.Count;
+            int userChoiceNumber = -1;
+
+            while (userChoiceNumber != 0)
+            {
+                base.Show();
+                this.printMenuOptions(lengthOfList);
+                userChoiceNumber = this.getUserChoiceNumber(0, lengthOfList - 1);
+                StartChosenMenuItem(this.m_MenuOptions[userChoiceNumber]);
+            }
         }
         ///----------------------------------------------------------------///
         private void printMenuOptions(int i_ListLenght)
         {
             for (int i = 0; i < i_ListLenght; ++i)
             {
-                Console.WriteLine("{0}. {1}", i, this.m_MenuOptions[i].Title);
+                Console.WriteLine("|| {0}. {1}", i, this.m_MenuOptions[i].Title);
             }
         }
         ///----------------------------------------------------------------///
@@ -47,7 +54,8 @@ namespace Ex04.Menus.Delegate
         {
             int userChoiceNum = 0;
             bool isValidInput = false;
-            Console.Write("Please choose what you want to do: ");
+            Console.Write(@"=============================================
+    Please choose your desired option: ");
 
             while (!isValidInput)
             {
@@ -56,9 +64,7 @@ namespace Ex04.Menus.Delegate
 
                 if (isValidInput && (userChoiceNum < i_MinValue || userChoiceNum > i_MaxValue))
                 {
-                    Console.Write("Your choice is out of boundarie which are between {0} to {1}, please try again: ",
-                        i_MinValue,
-                        i_MaxValue);
+                    Console.Write("Your choice is out of boundarie which are between {0} to {1}, please try again: ", i_MinValue, i_MaxValue);
                     isValidInput = false;
                 }
                 else if (!isValidInput)
@@ -70,18 +76,5 @@ namespace Ex04.Menus.Delegate
             return userChoiceNum;
         }
         ///----------------------------------------------------------------///
-        private void printOptionsGetUserChoice()
-        {
-            int lengthOfList = this.m_MenuOptions.Count;
-            int userChoiceNumber = -1;
-
-            while (userChoiceNumber != 0)
-            {
-                base.Show();
-                this.printMenuOptions(lengthOfList);
-                userChoiceNumber = this.getUserChoiceNumber(0, lengthOfList - 1);
-                this.m_MenuOptions[userChoiceNumber].Show();
-            }
-        }
     }
 }

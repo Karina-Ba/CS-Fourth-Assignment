@@ -38,7 +38,7 @@ namespace Ex04.Menus.Interface
                 base.Show();
                 this.printMenuOptions(lengthOfList);
                 userChoiceNumber = this.getUserChoiceNumber(0, lengthOfList - 1);
-                base.StartChosenMenuItem(this.m_MenuOptions[userChoiceNumber]);
+                StartChosenMenuItem(this.m_MenuOptions[userChoiceNumber]);
             }
         }
         ///----------------------------------------------------------------///
@@ -46,7 +46,7 @@ namespace Ex04.Menus.Interface
         {
             for (int i = 0; i < i_ListLenght; ++i)
             {
-                Console.WriteLine("{0}. {1}", i, this.m_MenuOptions[i].Title);
+                Console.WriteLine(@"|| {0}. {1}", i, this.m_MenuOptions[i].Title);
             }
         }
         ///----------------------------------------------------------------///
@@ -54,7 +54,8 @@ namespace Ex04.Menus.Interface
         {
             int userChoiceNum = 0;
             bool isValidInput = false;
-            Console.Write("Please choose what you want to do: ");
+            Console.Write(@"=============================================
+    Please choose your desired option: ");
 
             while (!isValidInput)
             {

@@ -5,8 +5,8 @@ namespace Ex04.Menus.Test
 {
     public class TestMenu
     {
-        Interface.MainMenu m_InterfaceMenu;
-        Delegate.MainMenu m_DelegateMenu;
+        private Interface.MainMenu m_InterfaceMenu;
+        private Delegate.MainMenu m_DelegateMenu;
         ///----------------------------------------------------------------///
         public void InitTestMenu()
         {
@@ -20,7 +20,7 @@ namespace Ex04.Menus.Test
 
             this.m_InterfaceMenu = new Interface.MainMenu(newInterfaceMenu);
             this.m_DelegateMenu = new Delegate.MainMenu(newDelegateMenu);
-            //this.m_InterfaceMenu.Show();
+            this.m_InterfaceMenu.Show();
             this.m_DelegateMenu.Show();
         }
         ///----------------------------------------------------------------///
@@ -47,23 +47,21 @@ namespace Ex04.Menus.Test
             List<Delegate.MenuItem> showDateAndTime = new List<Delegate.MenuItem>();
             Delegate.ActionMenuItem actionItem = new Delegate.ActionMenuItem("Count Capitals");
 
-            actionItem.MenuItemChosen += new Delegate.ChosenMenuItemEvent(MyActionables.CountCapitals);
+            actionItem.ActionItem += new Delegate.ActionItemEvent(MyActionables.CountCapitals);
             versionAndDigitsMenu.Add(actionItem);
             actionItem = new Delegate.ActionMenuItem("Show Version");
-            actionItem.MenuItemChosen += new Delegate.ChosenMenuItemEvent(MyActionables.ShowVersion);
+            actionItem.ActionItem += new Delegate.ActionItemEvent(MyActionables.ShowVersion);
             versionAndDigitsMenu.Add(actionItem);
             actionItem = new Delegate.ActionMenuItem("Show Time");
-            actionItem.MenuItemChosen += new Delegate.ChosenMenuItemEvent(MyActionables.ShowTime);
+            actionItem.ActionItem += new Delegate.ActionItemEvent(MyActionables.ShowTime);
             showDateAndTime.Add(actionItem);
             actionItem = new Delegate.ActionMenuItem("Show Date");
-            actionItem.MenuItemChosen += new Delegate.ChosenMenuItemEvent(MyActionables.ShowDate);
+            actionItem.ActionItem += new Delegate.ActionItemEvent(MyActionables.ShowDate);
             showDateAndTime.Add(actionItem);
             newDelegateMenu.Add(new Delegate.OptionsMenuItem(versionAndDigitsMenu, "Version and Digits"));
             newDelegateMenu.Add(new Delegate.OptionsMenuItem(showDateAndTime, "Show Date/Time"));
 
             return newDelegateMenu;
-
         }
-
     }
 }
